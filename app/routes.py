@@ -54,7 +54,7 @@ class MovieView(Resource):
     def get(self, id: int):
         try:
             data = db.session.query(models.Movie).filter(models.Movie.id == id).one()
-            return movie_scheme.dupm(data), 200
+            return movie_scheme.dump(data), 200
         except Exception as e:
             return str(e), 404
 
